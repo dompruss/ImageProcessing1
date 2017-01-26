@@ -96,7 +96,7 @@ class IMP implements MouseListener{
      JMenuItem firstItem = new JMenuItem("Rotate 90");
      JMenuItem secondItem = new JMenuItem("GreyScale");
      JMenuItem thirdItem = new JMenuItem("Blur");
-     JMenuItem fourthItem = new JMenuItem("3X3 Edge Detection");
+     JMenuItem fourthItem = new JMenuItem("Edge Detection");
      JMenuItem fifthItem = new JMenuItem("Color Histograms");
      
     
