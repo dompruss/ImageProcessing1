@@ -27,6 +27,7 @@ class IMP implements MouseListener{
    int colorX, colorY;
    int [] pixels;
    int [] results;
+   JLabel label;
    //Instance Fields you will be using below
    
    //This will be your height and width of your 2d array
@@ -153,7 +154,7 @@ class IMP implements MouseListener{
      height = img.getIconHeight(); 
      originalWidth = width;
      originalHeight = height;
-     JLabel label = new JLabel(img);
+     label = new JLabel(img);
      label.addMouseListener(this);
      pixels = new int[width*height];
      
@@ -200,12 +201,13 @@ class IMP implements MouseListener{
         for(int i = 0; i<width*height; i++)
              pixels[i] = results[i]; 
        Image img2 = toolkit.createImage(new MemoryImageSource(originalWidth, originalHeight, pixels, 0, originalWidth)); 
-       JLabel label2 = new JLabel(new ImageIcon(img2));    
+       label = new JLabel(new ImageIcon(img2));
+       mp.removeAll();
        height = originalHeight;
        width = originalWidth;
        turnTwoDimensional();
        mp.removeAll();
-       mp.add(label2);
+       mp.add(label);
       
        mp.revalidate(); 
     }
