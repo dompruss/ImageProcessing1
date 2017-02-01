@@ -465,9 +465,9 @@ private void colorHistogram()
        }
    
    
-   //MyPanel redPanel;
-  // MyPanel greenPanel;
-  // MyPanel bluePanel;
+   MyPanel redPanel;
+   MyPanel greenPanel;
+   MyPanel bluePanel;
    JPanel red = new JPanel();
    JPanel green = new JPanel();
    JPanel blue = new JPanel();
@@ -481,14 +481,14 @@ private void colorHistogram()
   JFrame blueFrame = new JFrame("blue");
   blueFrame.setSize(305, 600);
   blueFrame.setLocation(1400, 0);
-  //redPanel = new MyPanel(red);
-  //greenPanel = new MyPanel(green);
-  //bluePanel = new MyPanel(blue);
-  //redFrame.getContentPane().add(redPanel, BorderLayout.CENTER);
+  redPanel = new MyPanel(red);
+  greenPanel = new MyPanel(green);
+  bluePanel = new MyPanel(blue);
+  redFrame.getContentPane().add(redPanel, BorderLayout.CENTER);
   redFrame.setVisible(true);
-  //greenFrame.getContentPane().add(greenPanel, BorderLayout.CENTER);
+  greenFrame.getContentPane().add(greenPanel, BorderLayout.CENTER);
   greenFrame.setVisible(true);
- // blueFrame.getContentPane().add(bluePanel, BorderLayout.CENTER);
+  blueFrame.getContentPane().add(bluePanel, BorderLayout.CENTER);
   blueFrame.setVisible(true);
   
    
@@ -506,7 +506,7 @@ private void colorHistogram()
           rgbArray = getPixelArray(picture[i][j]);
          //255,165,0 for orange
          
-         if(rgbArray[1] < 130 || (rgbArray[2] < 40 || rgbArray[2] > 250) || (rgbArray[3] > 70) )
+         if(rgbArray[1] < 130 || (rgbArray[2] < 75 || rgbArray[2] > 200) || (rgbArray[3] > 55) )
          {
              
             rgbArray[1] = 0;
@@ -519,17 +519,6 @@ private void colorHistogram()
          
          picture[i][j] = getPixels(rgbArray);
          
-          //get three ints for R, G and B
-//          rgbArray = getPixelArray(picture[i][j]);
-//         int average;
-//         average = (int)(  (double)(rgbArray[2]*.72)+  (double)(rgbArray[1]*.21) +(double)(rgbArray[3]*.07)/3);
-//        rgbArray[1] =  average; // red
-//        rgbArray[2] =  average; // green
-//        rgbArray[3] =  average; // blue
-//        
-//           
-//           //take three ints for R, G, B and put them back into a single int
-//           picture[i][j] = getPixels(rgbArray);
         } 
      resetPicture();
   }
