@@ -388,10 +388,15 @@ private void edgeDetect()
   }
 private void colorHistogram()
   {
+   MyPanel redPanel;
+   MyPanel greenPanel;
+   MyPanel bluePanel;
+   JPanel red = new JPanel();
+   JPanel green = new JPanel();
+   JPanel blue = new JPanel();
       int redArray[]= new int[256];
       int greenArray[]= new int[256];
       int blueArray[]= new int[256];
-      
       int redMin, redMax, greenMin, greenMax, blueMin, blueMax;
       redMin=0;
       redMax=255;
@@ -399,6 +404,25 @@ private void colorHistogram()
       greenMax =255;
       blueMin=0;
       blueMax=255;
+  JFrame redFrame = new JFrame("Red");
+  redFrame.setSize(305, 600);
+  redFrame.setLocation(800, 0);
+  JFrame greenFrame = new JFrame("Green");
+  greenFrame.setSize(305, 600);
+  greenFrame.setLocation(1150, 0);
+  JFrame blueFrame = new JFrame("blue");
+  blueFrame.setSize(305, 600);
+  blueFrame.setLocation(1450, 0);
+  redPanel = new MyPanel(red);
+  greenPanel = new MyPanel(green);
+  bluePanel = new MyPanel(blue);
+  redFrame.getContentPane().add(redPanel, BorderLayout.CENTER);
+  redFrame.setVisible(true);
+  greenFrame.getContentPane().add(greenPanel, BorderLayout.CENTER);
+  greenFrame.setVisible(true);
+  blueFrame.getContentPane().add(bluePanel, BorderLayout.CENTER);
+  blueFrame.setVisible(true);
+   start.setEnabled(true);
       
       
     for(int i=0; i<height; i++)
