@@ -1,4 +1,4 @@
-package ImageProcessing1;
+package imageprocessing1;
 
 
 /*
@@ -465,12 +465,12 @@ private void colorHistogram()
        }
    
    
-   MyPanel redPanel;
-   MyPanel greenPanel;
-   MyPanel bluePanel;
-   JPanel red = new JPanel();
-   JPanel green = new JPanel();
-   JPanel blue = new JPanel();
+  MyPanel redPanel;
+  MyPanel greenPanel;
+  MyPanel bluePanel;
+  JPanel red = new JPanel();
+  JPanel green = new JPanel();
+  JPanel blue = new JPanel();
    
   JFrame redFrame = new JFrame("Red");
   redFrame.setSize(305, 600);
@@ -481,9 +481,9 @@ private void colorHistogram()
   JFrame blueFrame = new JFrame("blue");
   blueFrame.setSize(305, 600);
   blueFrame.setLocation(1400, 0);
-  redPanel = new MyPanel(red);
-  greenPanel = new MyPanel(green);
-  bluePanel = new MyPanel(blue);
+  redPanel = new MyPanel(redArray);
+  greenPanel = new MyPanel(greenArray);
+  bluePanel = new MyPanel(blueArray);
   redFrame.getContentPane().add(redPanel, BorderLayout.CENTER);
   redFrame.setVisible(true);
   greenFrame.getContentPane().add(greenPanel, BorderLayout.CENTER);
