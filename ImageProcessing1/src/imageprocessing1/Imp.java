@@ -388,12 +388,7 @@ private void edgeDetect()
   }
 private void colorHistogram()
   {
-   MyPanel redPanel;
-   MyPanel greenPanel;
-   MyPanel bluePanel;
-   JPanel red = new JPanel();
-   JPanel green = new JPanel();
-   JPanel blue = new JPanel();
+
       int redArray[]= new int[256];
       int greenArray[]= new int[256];
       int blueArray[]= new int[256];
@@ -404,25 +399,7 @@ private void colorHistogram()
       greenMax =255;
       blueMin=0;
       blueMax=255;
-  JFrame redFrame = new JFrame("Red");
-  redFrame.setSize(305, 600);
-  redFrame.setLocation(800, 0);
-  JFrame greenFrame = new JFrame("Green");
-  greenFrame.setSize(305, 600);
-  greenFrame.setLocation(1150, 0);
-  JFrame blueFrame = new JFrame("blue");
-  blueFrame.setSize(305, 600);
-  blueFrame.setLocation(1450, 0);
-  redPanel = new MyPanel(red);
-  greenPanel = new MyPanel(green);
-  bluePanel = new MyPanel(blue);
-  redFrame.getContentPane().add(redPanel, BorderLayout.CENTER);
-  redFrame.setVisible(true);
-  greenFrame.getContentPane().add(greenPanel, BorderLayout.CENTER);
-  greenFrame.setVisible(true);
-  blueFrame.getContentPane().add(bluePanel, BorderLayout.CENTER);
-  blueFrame.setVisible(true);
-   start.setEnabled(true);
+  
       
       
     for(int i=0; i<height; i++)
@@ -458,6 +435,8 @@ private void colorHistogram()
        if(blueMax == 255  && blueArray[i] !=0 ){
            blueMax = blueArray[i]; // this will be looking for the max
        }
+       
+       
    }
    //we now should have the min and max values for all colors so we can begin normalizing
    // first step is to see how big of a factor we have to scale the colors (if the color range is 40, we don't need all 256 range
@@ -469,10 +448,38 @@ private void colorHistogram()
       
        
        
-       
-           
+     
            
        }
+   
+   
+   //MyPanel redPanel;
+  // MyPanel greenPanel;
+  // MyPanel bluePanel;
+   JPanel red = new JPanel();
+   JPanel green = new JPanel();
+   JPanel blue = new JPanel();
+   
+  JFrame redFrame = new JFrame("Red");
+  redFrame.setSize(305, 600);
+  redFrame.setLocation(800, 0);
+  JFrame greenFrame = new JFrame("Green");
+  greenFrame.setSize(305, 600);
+  greenFrame.setLocation(1100, 0);
+  JFrame blueFrame = new JFrame("blue");
+  blueFrame.setSize(305, 600);
+  blueFrame.setLocation(100, 0);
+  //redPanel = new MyPanel(red);
+  //greenPanel = new MyPanel(green);
+  //bluePanel = new MyPanel(blue);
+  //redFrame.getContentPane().add(redPanel, BorderLayout.CENTER);
+  redFrame.setVisible(true);
+  //greenFrame.getContentPane().add(greenPanel, BorderLayout.CENTER);
+  greenFrame.setVisible(true);
+ // blueFrame.getContentPane().add(bluePanel, BorderLayout.CENTER);
+  blueFrame.setVisible(true);
+   start.setEnabled(true);
+   
       
   }
   
