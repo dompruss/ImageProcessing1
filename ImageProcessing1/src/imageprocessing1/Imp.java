@@ -107,6 +107,7 @@ class IMP implements MouseListener{
      JMenuItem secondItem = new JMenuItem("GreyScale");
      JMenuItem thirdItem = new JMenuItem("Blur");
      JMenuItem fourthItem = new JMenuItem("Edge Detection");
+     JMenuItem fifthItem = new JMenuItem("Color Detection");
     
      
     
@@ -129,6 +130,10 @@ class IMP implements MouseListener{
             @Override
           public void actionPerformed(ActionEvent evt){edgeDetect();}
            });
+       fifthItem.addActionListener(new ActionListener(){
+            @Override
+          public void actionPerformed(ActionEvent evt){colorDetect();}
+           });
 
        
       
@@ -136,6 +141,7 @@ class IMP implements MouseListener{
       fun.add(secondItem);
       fun.add(thirdItem);
       fun.add(fourthItem);
+      fun.add(fifthItem);
       
       
       return fun;   
@@ -490,7 +496,43 @@ private void colorHistogram()
     
    
   }
-  
+  public void colorDetect()
+  {
+      for(int i=0; i<height; i++)
+       for(int j=0; j<width; j++)
+       {   
+          
+          int rgbArray[] = new int[4];
+          rgbArray = getPixelArray(picture[i][j]);
+         //255,165,0 for orange
+         
+         if(rgbArray[1] < 130 || (rgbArray[2] < 40 || rgbArray[2] > 250) || (rgbArray[3] > 70) )
+         {
+             
+            rgbArray[1] = 0;
+            rgbArray[2] = 0;
+            rgbArray[3] = 0;
+             
+         }
+         
+         
+         
+         picture[i][j] = getPixels(rgbArray);
+         
+          //get three ints for R, G and B
+//          rgbArray = getPixelArray(picture[i][j]);
+//         int average;
+//         average = (int)(  (double)(rgbArray[2]*.72)+  (double)(rgbArray[1]*.21) +(double)(rgbArray[3]*.07)/3);
+//        rgbArray[1] =  average; // red
+//        rgbArray[2] =  average; // green
+//        rgbArray[3] =  average; // blue
+//        
+//           
+//           //take three ints for R, G, B and put them back into a single int
+//           picture[i][j] = getPixels(rgbArray);
+        } 
+     resetPicture();
+  }
  
   
  
