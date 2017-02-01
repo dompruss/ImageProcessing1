@@ -46,9 +46,9 @@ BufferedImage grid;
  
  public void drawImage()
  {
-     for (int i = 20; i<570;i++)
+     for (int i = 25; i<280;i++)
      {
-         gc.drawLine(i, 20, i, colorArray[i]);
+         gc.drawLine(i, 20,i , colorArray[i-25]);
      }
      repaint();
  }
