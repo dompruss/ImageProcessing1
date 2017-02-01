@@ -15,6 +15,7 @@ import java.io.File;
 import java.awt.image.PixelGrabber;
 import java.awt.image.MemoryImageSource;
 
+
 class IMP implements MouseListener{
    JFrame frame;
    JPanel mp;
@@ -83,7 +84,15 @@ class IMP implements MouseListener{
       butPanel.add(start);
       frame.getContentPane().add(butPanel, BorderLayout.SOUTH);
       frame.setJMenuBar(bar);
-      frame.setVisible(true);      
+      frame.setVisible(true);
+      start.addActionListener(new ActionListener(){
+            @Override
+          public void actionPerformed(ActionEvent evt){ colorHistogram(); }
+           });
+          
+          
+      
+      
    }
    
    /* 
@@ -98,7 +107,7 @@ class IMP implements MouseListener{
      JMenuItem secondItem = new JMenuItem("GreyScale");
      JMenuItem thirdItem = new JMenuItem("Blur");
      JMenuItem fourthItem = new JMenuItem("Edge Detection");
-     JMenuItem fifthItem = new JMenuItem("Color Histograms");
+    
      
     
      firstItem.addActionListener(new ActionListener(){
@@ -120,17 +129,13 @@ class IMP implements MouseListener{
             @Override
           public void actionPerformed(ActionEvent evt){edgeDetect();}
            });
-      fifthItem.addActionListener(new ActionListener(){
-            @Override
-          public void actionPerformed(ActionEvent evt){colorHistogram();}
-           });
+
        
       
       fun.add(firstItem);
       fun.add(secondItem);
       fun.add(thirdItem);
       fun.add(fourthItem);
-      fun.add(fifthItem);
       
       
       return fun;   
@@ -178,6 +183,7 @@ class IMP implements MouseListener{
      mp.add(label);
      
      mp.revalidate();
+     start.setEnabled(true);
   }
   
   /*
@@ -468,7 +474,7 @@ private void colorHistogram()
   greenFrame.setLocation(1100, 0);
   JFrame blueFrame = new JFrame("blue");
   blueFrame.setSize(305, 600);
-  blueFrame.setLocation(100, 0);
+  blueFrame.setLocation(1400, 0);
   //redPanel = new MyPanel(red);
   //greenPanel = new MyPanel(green);
   //bluePanel = new MyPanel(blue);
@@ -478,9 +484,11 @@ private void colorHistogram()
   greenFrame.setVisible(true);
  // blueFrame.getContentPane().add(bluePanel, BorderLayout.CENTER);
   blueFrame.setVisible(true);
-   start.setEnabled(true);
+  
    
-      
+    
+    
+   
   }
   
  
