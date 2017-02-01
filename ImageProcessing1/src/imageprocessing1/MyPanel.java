@@ -21,6 +21,13 @@ public class MyPanel extends JPanel{
     //instance fields
 BufferedImage grid;
  Graphics2D gc;
+ int colorArray[];
+ 
+ 
+ public MyPanel (int Array[]){
+  colorArray = Array;
+  
+ }
 ///PaintComponent Method
  public void paintComponent(Graphics g)
     { 
@@ -36,4 +43,13 @@ BufferedImage grid;
          g2.drawImage(grid, null, 0, 0);
          
     }
+ 
+ public void drawImage()
+ {
+     for (int i = 20; i<570;i++)
+     {
+         gc.drawLine(i, 20, i, colorArray[i]);
+     }
+     repaint();
+ }
 }
