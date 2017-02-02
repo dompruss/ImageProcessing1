@@ -536,16 +536,30 @@ class IMP implements MouseListener {
             
             
         }
-        System.out.println(redpix + "   "+ greenpix + "   " + bluepix);
+        //System.out.println(redpix + "   "+ greenpix + "   " + bluepix);
         for (int i = 0; i < 256; i++) {
             redProbability[i]=redArray[i]/redpix;
             greenProbability[i]=greenArray[i]/greenpix;
             blueProbability[i]=blueArray[i]/bluepix;
-            System.out.println(redProbability[i] + "   "+ greenProbability[i] + "   " + blueProbability[i]);
+            
         }
         for (int i = 1; i < 256; i++) {
             redProbability[i] = redProbability[i]+redProbability[i-1];
+            greenProbability[i] = greenProbability[i]+greenProbability[i-1];
+            blueProbability[i] = blueProbability[i]+blueProbability[i-1];
+            if(redProbability[i]>1){redProbability[i]=1;}
+            if(greenProbability[i]>1){greenProbability[i]=1;}
+            if(blueProbability[i]>1){blueProbability[i]=1;}
+            
         }
+        for (int i = 0; i < 256; i++) {
+            redProbability[i]=redProbability[i]*i;
+            greenProbability[i]=greenProbability[i]*i;
+            blueProbability[i]=blueProbability[i]*i;
+            System.out.println(redProbability[i] + "   "+ greenProbability[i] + "   " + blueProbability[i]);
+        }
+        
+        
     }
 
     private void quit() {
