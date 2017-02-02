@@ -35,6 +35,7 @@ class IMP implements MouseListener {
     int redArray[] = new int[256];
     int greenArray[] = new int[256];
     int blueArray[] = new int[256];
+    int rgbArray[] = new int[4];
     //Instance Fields you will be using below
 
     //This will be your height and width of your 2d array
@@ -442,7 +443,7 @@ class IMP implements MouseListener {
 
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                int rgbArray[] = new int[4];
+                //int rgbArray[] = new int[4];
 
                 //get three ints for R, G and B
                 rgbArray = getPixelArray(picture[i][j]);
@@ -525,6 +526,9 @@ class IMP implements MouseListener {
     }
 
     public void equalizeHistogram() {
+        
+        
+        
         double redpix=0, greenpix=0, bluepix=0;
         double redProbability[] = new double[256];
         double greenProbability[] = new double[256];
@@ -556,8 +560,29 @@ class IMP implements MouseListener {
             redProbability[i]=redProbability[i]*i;
             greenProbability[i]=greenProbability[i]*i;
             blueProbability[i]=blueProbability[i]*i;
+            
+        }
+        for (int i = 0; i < 256; i++) {
+            redProbability[i]=Math.floor(redProbability[i]);
+            greenProbability[i]=Math.floor(greenProbability[i]);
+            blueProbability[i]=Math.floor(blueProbability[i]);
             System.out.println(redProbability[i] + "   "+ greenProbability[i] + "   " + blueProbability[i]);
         }
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                
+                int rgbArray[] = new int[4];
+
+                //get three ints for R, G and B
+                rgbArray = getPixelArray(picture[i][j]);
+                
+                rgbArray[1]=(int)redProbability[i];
+                rgbArray[2]=(int)greenProbability[i];
+                rgbArray[3]=(int)blueProbability[i];
+                picture[i][j] = getPixels(rgbArray);
+            }
+        }
+        resetPicture();
         
         
     }
