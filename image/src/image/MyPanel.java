@@ -15,7 +15,9 @@ import java.io.*;
 import java.awt.image.BufferedImage;
 /**
  *
- * @author b53t457
+ * @author Brandon Busby
+ * @author Dominik Pruss
+ * 
  */
 public class MyPanel extends JPanel{
     //instance fields
