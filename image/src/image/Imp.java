@@ -475,7 +475,7 @@ class IMP implements MouseListener {
         blueFactor = (600 / blueMax) + 1;
 
         int factor = (redFactor + greenFactor + blueFactor) / 3;
-        factor = factor + 3;
+        factor = factor + 5;
 
         JPanel red = new JPanel();
         JPanel green = new JPanel();
@@ -576,9 +576,9 @@ class IMP implements MouseListener {
                 //get three ints for R, G and B
                 rgbArray = getPixelArray(picture[i][j]);
                 
-                rgbArray[1]=(int)redProbability[i];
-                rgbArray[2]=(int)greenProbability[i];
-                rgbArray[3]=(int)blueProbability[i];
+                rgbArray[1]=(int)redProbability[rgbArray[1]];
+                rgbArray[2]=(int)greenProbability[rgbArray[2]];
+                rgbArray[3]=(int)blueProbability[rgbArray[3]];
                 picture[i][j] = getPixels(rgbArray);
             }
         }
